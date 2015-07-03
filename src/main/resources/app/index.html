@@ -3,45 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script src="angular.min.js"></script>
+    <script src="script.js"></script>
     <title></title>
 </head>
-<body>
+<body ng-app="personal-calendar" ng-controller="CalendarCtrl">
 
 <div>
     <a href="about.html">O mnie</a>
+
 </div>
 
 <div class="calendar-month">Lipiec</div>
 
-<div class="calendar-day">
-    pon
-    <div class="day-number">6</div>
+<div class="calendar-day" ng-repeat="day in days" ng-class="{weekend: day.weekend}">
+    {{day.name}}
+    <div class="day-number">{{day.number}}</div>
 </div>
-<div class="calendar-day">
-    wt
-    <div class="day-number">7</div>
-</div>
-<div class="calendar-day">
-    sr
-    <div class="day-number">8</div>
-</div>
-<div class="calendar-day">
-    czw
-    <div class="day-number">9</div>
-</div>
-<div class="calendar-day">
-    pt
-    <div class="day-number">10</div>
-</div>
-<div class="calendar-day weekend">
-    sob
-    <div class="day-number">11</div>
-</div>
-<div class="calendar-day weekend">
-    nd
-    <div class="day-number">12</div>
-</div>
-
+<hr/>
 <div>&copy; Copyright 2015</div>
 </body>
 </html>
