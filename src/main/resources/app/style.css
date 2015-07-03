@@ -32,3 +32,8 @@ a:hover{
 .weekend:hover{
   background-color: #FF8;
 }
+
+.calendar-month {
+  font-size: 20px;
+
+}
