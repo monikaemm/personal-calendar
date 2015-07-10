@@ -18,8 +18,8 @@
 
 
 <div class="calendar-day" ng-repeat="day in days" ng-class="{weekend: day.weekend}">
-    {{day.name}}
-    <div class="day-number">{{day.number}}</div>
+    {{day.dayOfWeek | limitTo: 3}}
+    <div class="day-number">{{day.dayOfMonth}}</div>
 </div>
 <hr/>
 <div>&copy; Copyright 2015</div>

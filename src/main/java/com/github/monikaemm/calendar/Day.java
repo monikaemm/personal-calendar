@@ -6,10 +6,12 @@ import java.time.DayOfWeek;
 public class Day {
     DayOfWeek dayOfWeek;
     int dayOfMonth;
+    boolean weekend;
 
     public Day(int dayOfMonth, DayOfWeek dayOfWeek) {
         this.dayOfMonth = dayOfMonth;
         this.dayOfWeek = dayOfWeek;
+        this.weekend = dayOfWeek == DayOfWeek.SUNDAY || dayOfWeek == DayOfWeek.SATURDAY;
     }
 
     public DayOfWeek getDayOfWeek() {
