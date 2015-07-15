@@ -14,22 +14,20 @@
 
 </div>
 
-<div class="calendar-month">Lipiec <img  class="summer-icon" src="sun.jpg" alt="Summer"></div>
+<div class="calendar-month">Lipiec <img class="summer-icon" src="sun.jpg" alt="Summer"></div>
 
-
-<div class="calendar-day" ng-repeat="day in days" ng-class="{weekend: day.weekend}" ng-click="count = count + 1" ng-init="count=0">
+<div class="calendar-day" ng-repeat="day in days" ng-class="{weekend: day.weekend}" ng-click="showTasks(day)">
     {{day.dayOfWeek | limitTo: 3}}
-
-     count: {{count}}
-
     <div class="day-number">{{day.dayOfMonth}}</div>
-
 </div>
-<ul>
-    <li>Punkt 1</li>
-    <li>Punkt 2</li>
-    <li>Punkt 3</li>
-</ul>
+
+<div ng-show="tasksVisible">
+    {{tasksDay}}
+    <ul>
+        <li ng-repeat="task in tasks">{{task}}</li>
+    </ul>
+</div>
+
 <hr/>
 <div>&copy; Copyright 2015</div>
 </body>
