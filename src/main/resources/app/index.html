@@ -17,15 +17,19 @@
 <div class="calendar-month">Lipiec <img  class="summer-icon" src="sun.jpg" alt="Summer"></div>
 
 
-
-</div>
 <div class="calendar-day" ng-repeat="day in days" ng-class="{weekend: day.weekend}" ng-click="count = count + 1" ng-init="count=0">
     {{day.dayOfWeek | limitTo: 3}}
-    <span>
+
      count: {{count}}
-    </span>
+
     <div class="day-number">{{day.dayOfMonth}}</div>
+
 </div>
+<ul>
+    <li>Punkt 1</li>
+    <li>Punkt 2</li>
+    <li>Punkt 3</li>
+</ul>
 <hr/>
 <div>&copy; Copyright 2015</div>
 </body>
