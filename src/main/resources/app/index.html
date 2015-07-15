@@ -20,14 +20,14 @@
     {{day.dayOfWeek | limitTo: 3}}
     <div class="day-number">{{day.dayOfMonth}}</div>
 </div>
-
-<div ng-show="tasksVisible">
-    {{tasksDay}}
-    <ul>
-        <li ng-repeat="task in tasks">{{task}}</li>
-    </ul>
+<div>
+    <div class="tasks-list" ng-show="tasksVisible">
+        <h2>{{tasksDay}}</h2>
+        <ul>
+            <li ng-repeat="task in tasks">{{task}}</li>
+        </ul>
+    </div>
 </div>
-
 <hr/>
 <div>&copy; Copyright 2015</div>
 </body>

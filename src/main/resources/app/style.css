@@ -49,3 +49,22 @@ a:hover{
   height: 50px;
   vertical-align: top;
 }
+
+.tasks-list{
+  background-image: url("free-paper-texture.jpg");
+  border: 3px solid yellow;
+  display: inline-block;
+  padding: 10px;
+}
+
+.tasks-list h2{
+  color: green;
+}
+
+.tasks-list li{
+  font-style: italic;
+}
+
+.tasks-list ul{
+  list-style-type: circle;
+}
