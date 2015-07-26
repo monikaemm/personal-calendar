@@ -23,7 +23,7 @@ public class TasksRepositoryTest {
     public void returnsEmptyListForEmptyRepository() {
         LocalDate day = LocalDate.of(2015, 7, 15);
 
-        List<String> tasks = repository.getFor(day);
+        List<String> tasks = repository.getTasksFor(day);
 
         assertThat(tasks).isEmpty();
     }
@@ -34,7 +34,7 @@ public class TasksRepositoryTest {
         String task = "create new year resolution";
 
         repository.addTask(day, task);
-        List<String> tasks = repository.getFor(day);
+        List<String> tasks = repository.getTasksFor(day);
 
         assertThat(tasks).containsOnly(task);
     }
@@ -46,7 +46,7 @@ public class TasksRepositoryTest {
         String task = "create new year resolution";
 
         repository.addTask(day, task);
-        List<String> tasks = repository.getFor(otherDay);
+        List<String> tasks = repository.getTasksFor(otherDay);
 
         assertThat(tasks).isEmpty();
     }
@@ -59,7 +59,7 @@ public class TasksRepositoryTest {
 
         repository.addTask(day, task1);
         repository.addTask(day, task2);
-        List<String> tasks = repository.getFor(day);
+        List<String> tasks = repository.getTasksFor(day);
 
         assertThat(tasks).containsOnly(task1, task2);
     }
