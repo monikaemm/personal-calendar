@@ -27,6 +27,7 @@ public class App {
         tasksRepo.addTask(LocalDate.now(), "zadanie");
         tasksRepo.addTask(LocalDate.now(), "zadanie 2 ");
         tasksRepo.addTask(LocalDate.now(), "zadanie 3");
+        tasksRepo.addTask(LocalDate.of(2015,7,28), "zadanie 3");
 
         staticFileLocation("app");
         get("/currentWeek", (req, res) -> week.getDays(), toJson());

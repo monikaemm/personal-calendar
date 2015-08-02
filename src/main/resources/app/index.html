@@ -23,6 +23,10 @@
 <div>
     <div class="tasks-list" ng-show="tasksVisible">
         <h2>{{tasksDay}}</h2>
+        <form action="">
+            Zadanie:<br>
+            <input type="text" name="taskname" maxlength="10">
+        </form>
         <ul>
             <li ng-repeat="task in tasks">{{task}}</li>
         </ul>

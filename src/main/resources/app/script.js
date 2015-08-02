@@ -1,10 +1,18 @@
 var app = angular.module("personal-calendar", []);
 app.controller("CalendarCtrl", function ($scope, $http) {
+  function fetchTasks(dayOfMonth) {
+    $http
+      .get("/task", {params: {day: dayOfMonth}})
+      .success(function (result) {
+        $scope.tasks = result;
+      });
+  }
+
   $scope.showTasks = function (day) {
     if ($scope.tasksDay != day.dayOfWeek) {
       $scope.tasksVisible = true;
       $scope.tasksDay = day.dayOfWeek;
-      $scope.tasks = ["jedno zadanie", "drugie zadanie"];
+      fetchTasks(day.dayOfMonth);
     }
     else {
       $scope.tasksVisible = false;
