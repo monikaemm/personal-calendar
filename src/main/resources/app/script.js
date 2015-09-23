@@ -20,6 +20,28 @@ app.controller("CalendarCtrl", function ($scope, $http) {
     }
   };
 
+  $scope.loginData = {};
+
+  $scope.loginUser = function(){
+    $http
+        .get("/login", {params: {login: $scope.loginData.login, password: $scope.loginData.password}})
+        .success(function (user){
+            if(user!="null"){
+                $scope.userLogged = true;
+                $scope.loginError = "";
+                $scope.loginData = {};
+            }
+            else{
+                $scope.userLogged = false;
+                $scope.loginError = "Zly login lub haslo";
+            }
+        });
+
+  };
+  $scope.logoutUser = function(){
+   $scope.userLogged = false;
+  }
+
   $http
     .get("/currentWeek")
     .success(function (result) {
