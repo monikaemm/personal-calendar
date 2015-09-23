@@ -2,10 +2,15 @@ package com.github.monikaemm.web;
 
 import com.github.monikaemm.calendar.TasksRepository;
 import com.github.monikaemm.calendar.WeekView;
+import com.github.monikaemm.users.User;
+import com.github.monikaemm.users.UsersRepository;
 import com.google.gson.Gson;
+import spark.ExceptionHandler;
 import spark.Request;
+import spark.Response;
 import spark.ResponseTransformer;
 
+import java.sql.SQLException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,6 +26,7 @@ import static spark.Spark.staticFileLocation;
 public class App {
     static Gson gson = new Gson();
     static TasksRepository tasksRepo = new TasksRepository();
+    static UsersRepository usersRepo = new UsersRepository();
 
     public static void main(String[] args) {
         WeekView week = new WeekView();
@@ -32,6 +38,18 @@ public class App {
         staticFileLocation("app");
         get("/currentWeek", (req, res) -> week.getDays(), toJson());
         get("/task", (req, res) -> getTasks(req), toJson());
+        get("/login", (req, res) -> getUser(req), toJson());
+    }
+
+    private static User getUser(Request req) {
+        String loginParam = req.queryParams("login");
+        String passParam = req.queryParams("password");
+        try {
+            return usersRepo.getUserByLogin(loginParam, passParam);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private static List<String> getTasks(Request req) {
